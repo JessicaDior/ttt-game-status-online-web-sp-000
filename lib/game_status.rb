@@ -33,3 +33,29 @@ position_3 = board[win_index_3]
 end
 return false
 end
+
+def full?(board)
+  if board.any? {|index| index == nil || index == " "}
+    return false
+  else
+return true
+end
+end
+
+def draw?(board)
+  if !won?(board) && full?(board)
+    return true
+  elsif!full?(board) && !won?(board)
+    return false
+  else won?(board)
+    return false
+  end
+end
+
+def over?(board)
+  if draw?(board) || won?(board) || full?(board)
+    return true
+  else
+    return false
+  end
+end
